@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Каталог тортов</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+
+body{
+margin:0;
+font-family:'Open Sans', sans-serif;
+color:#6b4b3e;
+
+background:
+    repeating-linear-gradient(
+      90deg,              /* 90deg = горизонтально */
+      #fad0b5 0 35px,
+      #e4bca1 35px 70px
+    );
+}
+
+.container{
+width:1100px;
+margin:auto;
+}
+
+/* HEADER */
+
+header{
+background:#fff;
+padding:20px 0;
+box-shadow:0 2px 5px rgba(0,0,0,0.1);
+}
+
+nav{
+display:flex;
+justify-content:center;
+gap:60px;
+}
+
+nav a{
+text-decoration:none;
+color:#6b4b3e;
+font-weight:600;
+}
+
+/* TITLE */
+
+.page-title{
+text-align:center;
+margin:50px 0 40px;
+font-family:'Pacifico';
+font-size:42px;
+}
+
+/* PRODUCTS GRID */
+
+.products{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:30px;
+}
+
+.product{
+background:white;
+border-radius:15px;
+padding:20px;
+text-align:center;
+box-shadow:0 5px 15px rgba(0,0,0,0.1);
+transition:0.3s;
+}
+
+.product:hover{
+transform:translateY(-8px);
+box-shadow:0 10px 25px rgba(0,0,0,0.15);
+}
+
+/* VIDEO В КАРТОЧКЕ */
+
+.product video{
+width:100%;
+height:180px;
+object-fit:cover;
+border-radius:10px;
+transition:0.3s;
+}
+
+/* ТЕКСТ */
+
+.product h3{
+font-family:'Pacifico';
+margin:10px 0 5px;
+}
+
+.product p{
+font-size:15px;
+line-height:1.6;
+margin-bottom:10px;
+}
+
+/* КНОПКА */
+
+.product button{
+margin-top:10px;
+background:#d86c8b;
+border:none;
+padding:10px 20px;
+color:white;
+border-radius:20px;
+cursor:pointer;
+transition:0.3s;
+}
+
+.product button:hover{
+background:#c25573;
+}
+
+/* FOOTER */
+
+footer{
+margin-top:60px;
+padding:40px 0;
+}
+
+.bottom{
+text-align:center;
+font-size:14px;
+}
+
+/* Hover video play effect */
+.product video.paused {
+  opacity:0.8;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="container">
+<nav>
+<a href="index.html">Главная</a>
+<a href="#">Каталог</a>
+</nav>
+</div>
+</header>
+
+<div class="container">
+
+<h1 class="page-title">Наши торты</h1>
+
+<div class="products">
+
+<!-- Карточка 1 -->
+<div class="product">
+<video muted loop playsinline class="paused">
+  <source src="img/cokolate.mp4" type="video/mp4">
+</video>
+<h3>Шоколадный торт</h3>
+<p>Насыщенный шоколадный бисквит, пропитанный сладким сиропом, с нежным шоколадным кремом. Украшен шоколадной стружкой и декоративными элементами. Идеально для любителей классического шоколадного вкуса на день рождения или праздничный стол.</p>
+<button>Заказать</button>
+</div>
+
+<!-- Карточка 2 -->
+<div class="product">
+<video muted loop playsinline class="paused">
+  <source src="img/klybnik.mp4" type="video/mp4">
+</video>
+<h3>Клубничный торт</h3>
+<p>Воздушные бисквитные коржи с легким сливочным кремом и свежей клубникой. Яркий и освежающий десерт, идеально подходит для летних праздников и семейных торжеств. Натуральные ягоды делают вкус насыщенным и свежим.</p>
+<button>Заказать</button>
+</div>
+
+<!-- Карточка 3 -->
+<div class="product">
+<video muted loop playsinline class="paused">
+  <source src="img/fruts.mp4" type="video/mp4">
+</video>
+<h3>Фруктовый чизкейк</h3>
+<p>Нежный сливочный чизкейк на песочной основе с ярким фруктовым топпингом. Идеальное сочетание мягкого сыра и свежих ягод создаёт лёгкий и изысканный вкус. Подходит для праздников и романтических событий.</p>
+<button>Заказать</button>
+</div>
+
+<!-- Карточка 4 -->
+<div class="product">
+<video muted loop playsinline class="paused">
+  <source src="img/karamel.mp4" type="video/mp4">
+</video>
+<h3>Карамельный торт</h3>
+<p>Мягкий бисквит с карамельным кремом и хрустящими орехами. Покрыт карамельной глазурью, которая придаёт насыщенный сладкий вкус. Отлично подойдёт для кофейного стола или детского праздника.</p>
+<button>Заказать</button>
+</div>
+
+<!-- Карточка 5 -->
+<div class="product">
+<video muted loop playsinline class="paused">
+  <source src="img/vanil.mp4" type="video/mp4">
+</video>
+<h3>Ванильный торт</h3>
+<p>Классический ванильный бисквит с лёгким сливочным кремом. Ароматный, нежный и легкий десерт для семейных торжеств, дня рождения или романтических встреч.</p>
+<button>Заказать</button>
+</div>
+
+<!-- Карточка 6 -->
+<div class="product">
+<video muted loop playsinline class="paused">
+  <source src="img/malina.mp4" type="video/mp4">
+</video>
+<h3>Ягодный торт</h3>
+<p>Воздушный бисквит с кремом и свежими ягодами: малиной, клубникой и черникой. Лёгкий и яркий десерт с насыщенным ягодным вкусом, идеально для летних праздников и особых случаев.</p>
+<button>Заказать</button>
+</div>
+
+</div>
+
+</div>
+
+<footer>
+<div class="container">
+<div class="bottom">
+Лучшие Торты © 2025 • Политика конфиденциальности
+</div>
+</div>
+</footer>
+
+<script>
+// Эффект воспроизведения видео при hover
+const videos = document.querySelectorAll('.product video');
+
+videos.forEach(video => {
+  video.addEventListener('mouseenter', () => {
+    video.play();
+  });
+  video.addEventListener('mouseleave', () => {
+    video.pause();
+  });
+});
+</script>
+
+</body>
+</html>

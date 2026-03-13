@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Лучшие Торты</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+
+body {
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+    color: #6b4b3e;
+
+    /* Горизонтальные полосы слева → направо */
+    background:
+    repeating-linear-gradient(
+      90deg,              /* 90deg = горизонтально */
+      #fad0b5 0 35px,
+      #e4bca1 35px 70px
+    );
+}
+
+.container {
+    width: 1100px;
+    margin: auto;
+    position: relative;
+    z-index: 1;
+}
+
+/* HEADER */
+header {
+    background: #fff;
+    padding: 20px 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: relative;
+    z-index: 100;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    flex-wrap: wrap;
+}
+
+/* Стили для пунктов меню */
+.menu-item {
+    position: relative;
+    display: inline-block;
+}
+
+.menu-item > a {
+    text-decoration: none;
+    color: #6b4b3e; /* единый цвет для всех основных пунктов */
+    font-weight: 600;
+    padding: 10px 0;
+    display: inline-block;
+    transition: color 0.2s;
+}
+
+.menu-item > a:hover {
+    color: #b24b4b;
+}
+
+/* Выпадающее меню (первый уровень) */
+.dropdown-content {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #fabbbb;
+    min-width: 180px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 8px 0;
+    display: none;
+    z-index: 1000;
+    border: 1px solid #f1bc94;
+}
+
+.menu-item:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content a {
+    color: #6b4b3e; /* единый цвет для История, Предложения */
+    padding: 10px 16px;
+    text-decoration: none;
+    display: block;
+    font-weight: 400;
+    transition: background 0.2s;
+}
+
+.dropdown-content a:hover {
+    background-color: #fdf2e7;
+    color: #b24b4b;
+}
+
+/* Вложенное меню (второй уровень для "Новости") */
+.dropdown-content .submenu {
+    position: relative;
+}
+
+.dropdown-content .submenu > a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #ffffff; /* белый текст для "Новости" */
+}
+
+.submenu-content {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    background-color: #c28c5a;
+    min-width: 160px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    padding: 8px 0;
+    display: none;
+    border: 1px solid #f0e0d4;
+}
+
+.submenu-content a {
+    background-color: #c28c5a;
+    color: #ffffff; /* белый текст для Архив и Свежие */
+}
+
+.submenu-content a:hover {
+    background-color: #d39a67;
+    color: #ffffff;
+}
+
+.submenu:hover .submenu-content {
+    display: block;
+}
+
+/* Стрелка для пунктов с подменю */
+.arrow {
+    margin-left: 8px;
+    font-size: 12px;
+    color: #ffffff; /* белая стрелка для "Новости" */
+}
+
+/* HERO */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 80px 0;
+    gap: 40px;
+}
+
+.hero-content {
+    max-width: 50%;
+}
+
+.cake-icon {
+    font-size: 60px;
+    margin-bottom: 15px;
+}
+
+.logo {
+    font-family: 'Pacifico';
+    font-size: 70px;
+    color: #b24b4b;
+    margin: 0 0 10px 0;
+}
+
+.subtitle {
+    font-size: 20px;
+    opacity: 0.9;
+}
+
+/* Картинка справа */
+.hero-cake {
+    width: 380px;
+    height: auto;
+    object-fit: contain;
+   
+}
+
+.hero-cake:hover {
+    transform: scale(1.03);
+}
+
+/* CATEGORY */
+.categories {
+    display: flex;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.card {
+    flex: 1;
+    padding: 40px;
+    border-radius: 15px;
+    color: white;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card h2 {
+    font-family: 'Pacifico';
+    font-size: 32px;
+    margin: 0;
+}
+
+.red    { background: #b85b5b; }
+.brown  { background: #b8795f; }
+.orange { background: #d8a46a; }
+
+/* POPULAR */
+.popular {
+    background: white;
+    margin-top: 40px;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.popular h2 {
+    text-align: center;
+    font-family: 'Pacifico';
+    font-size: 34px;
+    margin-bottom: 40px;
+}
+
+.cakes {
+    display: flex;
+    gap: 30px;
+}
+
+.cake {
+    flex: 1;
+    text-align: center;
+    background: #fff7fb;
+    padding: 20px;
+    border-radius: 15px;
+    transition: 0.3s;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+}
+
+.cake:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.cake video {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.cake h3 {
+    margin: 10px 0 5px;
+    font-family: 'Pacifico';
+}
+
+.more {
+    text-align: center;
+    margin-top: 35px;
+}
+
+.more button {
+    background: #d86c8b;
+    border: none;
+    padding: 12px 28px;
+    color: white;
+    font-size: 16px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.more button:hover {
+    background: #c25573;
+}
+
+/* FOOTER */
+footer {
+    margin-top: 60px;
+    padding: 40px 0;
+    
+}
+
+.footer-grid {
+    display: flex;
+    gap: 40px;
+}
+
+.footer-col {
+    flex: 1;
+}
+
+.footer-col h3 {
+    font-family: 'Pacifico';
+}
+
+input, textarea {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+button {
+    margin-top: 10px;
+    background: #b85b5b;
+    border: none;
+    padding: 10px 20px;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.2s;
+}
+button:hover {
+    background: #9e4a4a;
+}
+
+.bottom {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 14px;
+}
+
+ul {
+    padding-left: 18px;
+    list-style: none;
+}
+
+/* Адаптивность */
+@media (max-width: 1150px) {
+    .container { width: 95%; }
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 60px 0;
+    }
+    .hero-content {
+        max-width: 100%;
+        margin-bottom: 40px;
+    }
+    .hero-cake {
+        width: 80%;
+        max-width: 380px;
+        margin: 0 auto;
+    }
+    .categories, .cakes, .footer-grid {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    /* Адаптация меню для мобильных */
+    nav {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+    
+    .dropdown-content {
+        position: static;
+        box-shadow: none;
+        border: none;
+        background-color: #c28c5a;
+        margin-top: 5px;
+    }
+    
+    .submenu-content {
+        position: static;
+        box-shadow: none;
+        border: none;
+        background-color: #c28c5a;
+        margin-left: 20px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="container">
+<nav>
+    <div class="menu-item">
+        <a href="#">Главная</a>
+    </div>
+    
+    <!-- Пункт "О нас" с выпадающим меню -->
+    <div class="menu-item">
+        <a href="#">О нас</a>
+        <div class="dropdown-content">
+            <a href="#">История</a>
+            <a href="#">Предложения</a>
+            <!-- Подменю для Новости -->
+            <div class="submenu">
+                <a href="#">Новости <span class="arrow">▶</span></a>
+                <div class="submenu-content">
+                    <a href="#">Архив</a>
+                    <a href="#">Свежие</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="menu-item">
+        <a href="#">Услуги</a>
+    </div>
+    
+    <div class="menu-item">
+        <a href="catalog.html">Каталог</a>
+    </div>
+    
+    <div class="menu-item">
+        <a href="#">Связаться с нами</a>
+    </div>
+</nav>
+</div>
+</header>
+
+<div class="container">
+
+<section class="hero">
+
+    <div class="hero-content">
+        <div class="cake-icon">🍰</div>
+        <div class="logo">BestCakes</div>
+        <div class="subtitle">Сайт частной кондитерской</div>
+    </div>
+
+    <img src="img/logo.png" alt="Красивый праздничный торт" class="hero-cake">
+
+</section>
+
+<section class="categories">
+
+    <div class="card red">
+        <h2>Традиционные торты</h2>
+    </div>
+
+    <div class="card brown">
+        <h2>Новинка! Капкейки</h2>
+    </div>
+
+    <div class="card orange">
+        <h2>Торты на день рождения</h2>
+    </div>
+
+</section>
+
+<section class="popular">
+
+    <h2>Популярные торты</h2>
+
+    <div class="cakes">
+
+        <div class="cake">
+            <video autoplay muted loop playsinline>
+                <source src="img/cokolate.mp4" type="video/mp4">
+            </video>
+            <h3>Шоколадный торт</h3>
+            <p>Нежный шоколадный бисквит с кремом и украшениями.</p>
+        </div>
+
+        <div class="cake">
+            <video autoplay muted loop playsinline>
+                <source src="img/fruts.mp4" type="video/mp4">
+            </video>
+            <h3>Фруктовый чизкейк</h3>
+            <p>Лёгкий чизкейк с ягодами и фруктовой начинкой.</p>
+        </div>
+
+        <div class="cake">
+            <video autoplay muted loop playsinline>
+                <source src="img/klybnik.mp4" type="video/mp4">
+            </video>
+            <h3>Клубничный десерт</h3>
+            <p>Свежий десерт с клубникой и сливочным кремом.</p>
+        </div>
+
+    </div>
+
+    <div class="more">
+        <a href="catalog.html"><button>Смотреть все</button></a>
+    </div>
+
+</section>
+
+<footer>
+
+    <div class="container">
+        <div class="footer-grid">
+
+            <div class="footer-col">
+                <h3>Знаете ли вы?</h3>
+                <p>Мы используем только свежие и натуральные ингредиенты для приготовления наших тортов.</p>
+            </div>
+
+            <div class="footer-col">
+                <h3>Полезные ссылки</h3>
+                <ul>
+                    <li>О нашей кондитерской</li>
+                    <li>Галерея работ</li>
+                    <li>Наши услуги</li>
+                    <li>Связаться с нами</li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>Быстрое сообщение</h3>
+                <input placeholder="Ваше имя">
+                <textarea rows="4" placeholder="Сообщение"></textarea>
+                <button>Отправить</button>
+            </div>
+
+        </div>
+
+        <div class="bottom">
+            Лучшие Торты © 2025 • Политика конфиденциальности
+        </div>
+    </div>
+
+</footer>
+
+</div>
+
+</body>
+</html>
